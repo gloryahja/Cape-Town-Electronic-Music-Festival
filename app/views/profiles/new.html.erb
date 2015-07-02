@@ -1,6 +1,6 @@
 <h1>New EPK Profile</h1>
 
-<%= form_for :profile, url: profiles_path do |f| %>
+<%= form_for :profile, url: profiles_path, html: {multipart: true } do |f| %>
 
 <% if @profile.errors.any? %>
 	<div id="error_explanation">
@@ -29,6 +29,13 @@
 <!-- add image avatar
 
 add image cover_photo -->
+
+<p>
+	<%= f.label :avatar %>
+	<%= f.file_field :avatar %>
+</p>
+
+
 
 <p>
 	<%= f.label :facebook %>

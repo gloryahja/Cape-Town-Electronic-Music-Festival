@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # devise user
 gem 'devise', '~> 3.5.1'
+#paperclip to add cover photo and avatar
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
