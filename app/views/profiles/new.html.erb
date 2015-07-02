@@ -1,0 +1,54 @@
+<h1>New EPK Profile</h1>
+
+<%= form_for :profile, url: profiles_path do |f| %>
+
+<% if @profile.errors.any? %>
+	<div id="error_explanation">
+		<h2>
+			<%= pluralize(@profile.errors.count, "error") %> 
+				prohibited you from saving your profile
+		</h2>
+		<ul>
+			<% @profile.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</p>
+
+<p>
+	<%= f.label :bio %>
+	<%= f.text_area :bio %>
+</p>
+
+<!-- add image avatar
+
+add image cover_photo -->
+
+<p>
+	<%= f.label :facebook %>
+	<%= f.text_field :facebook %>
+</p>
+
+<p>
+	<%= f.label :twitter %>
+	<%= f.text_field :twitter %>
+</p>
+
+<p>
+	<%= f.label :soundcloud %>
+	<%= f.text_field :soundcloud %>
+</p>
+
+<p>
+	<%= f.submit %>
+</p>
+
+<% end %>
+
+<%= link_to 'EPK Home', welcome_index_path %>
