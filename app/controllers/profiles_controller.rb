@@ -1,14 +1,24 @@
 class ProfilesController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 	def index 
 	end
 
 	def new
-		@profile = Profile.new
+		# @profile = current_user.profile.build
+		 @profile = Profile.new if current_user
 	end
 
+	def show
+		@profile = Profile.find(params[:id])
+	end
+
+	def edit
+		@profile = Profile.find(params[:id])
+	end
+
+
 	def create
-		#the :profile comes from the :profile in the form that was created in new.html.erb
-		@profile = Profile.new(profile_params)
+		@profile = current_user.build_profile(profile_params)
 		if 
 			@profile.save
 			redirect_to @profile
@@ -17,9 +27,16 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def show
+	def update
 		@profile = Profile.find(params[:id])
+
+		if @profile.update(profile_params)
+			redirect_to @profile
+		else
+			render 'edit'
+		end
 	end
+	
 
 	private
 		def profile_params

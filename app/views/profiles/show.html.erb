@@ -12,6 +12,16 @@
 	</h2>
 </p>
 
+<!-- <p>
+	<h2>
+	s@profile.user.email
+	</h2>
+</p> -->
+
+
+<!-- add cover_photo and avatar -->
+
+
 <p>
 	<h2>
 		<%= @profile.facebook %>
@@ -30,3 +40,9 @@
 	</h2>
 </p>
 
+
+<!-- make it so these can only be seen by the user themselves -->
+<% if @profile.user == current_user %>
+<!-- add edit and destroy methods -->
+	<%= link_to "Edit EPK", edit_profile_path %> 
+<% end %>
