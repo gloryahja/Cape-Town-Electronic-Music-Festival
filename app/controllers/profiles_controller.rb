@@ -1,5 +1,12 @@
 class ProfilesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
+
+
+# after_sign_in
+
+# end
+
+
 	def index 
 	end
 
@@ -40,7 +47,7 @@ class ProfilesController < ApplicationController
 
 	private
 		def profile_params
-			params.require(:profile).permit(:name, :bio, :avatar, :cover_photo, :facebook, :twitter, :soundcloud)
+			params.require(:profile).permit(:name, :bio, :avatar, :cover_photo, :facebook, :twitter, :soundcloud, :embed)
 		end
 
 
