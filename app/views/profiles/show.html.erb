@@ -1,63 +1,67 @@
 <!-- this will be the landing page for the EPK as a whole -->
-<div class="profile profile-show">
-<p>
-	<strong>
-		<%= @profile.name %>'s EPK
-	</strong>
-</p>
-
-<p>
-	<h2>
-		<%= @profile.bio %>
-	</h2>
-</p>
-
-<!-- <p>
-	<h2>
-	s@profile.user.email
-	</h2>
-</p> -->
-
-
-<!-- add cover_photo and avatar -->
-
-<p>
-		<%= image_tag @profile.avatar.url(:thumb) %>
-</p>
-
-<p>
-		<%= image_tag @profile.cover_photo.url(:thumb) %>
-</p>
-
-<p>
-		<% if !@profile.embed.blank? %>
-			<%= render :inline => @profile.embed %>
-		<% end %>
-</p>
-
-
-		<% if !@profile.facebook.blank? %>
-			<%= link_to '<i class="fa fa-facebook-square"></i>' .html_safe, @profile.facebook %>
-		<% end %>
-
-
-		<% if !@profile.twitter.blank? %>
-			<%= link_to '<i class="fa fa-twitter-square"></i>' .html_safe, @profile.twitter %>
-		<% end %>
-
-
-
-		<% if !@profile.soundcloud.blank? %>
-			<%= link_to '<i class="fa fa-soundcloud"></i>' .html_safe, @profile.soundcloud %>
-		<% end %>
-
-
-
-<p>
-<!-- make it so these can only be seen by the user themselves -->
-<% if @profile.user == current_user %>
-<!-- add edit and destroy methods -->
-	<%= link_to "Edit EPK", edit_profile_path %> 
-<% end %>
-</p>
+<div class="col-md-2">
+	<div class="empty">
+	</div>
 </div>
+<div class="profile profile-show">
+		<div class ="col-md-8 col-md-offset-2">
+				<p>
+					<strong>
+						<%= @profile.name %>'s EPK
+					</strong>
+				</p>
+			<div class ="bio">
+				<div class="row">
+					<div class="col-md-7">
+						<h2>
+							<%= @profile.bio %>
+						</h2>
+					</div>
+						<!--@profile.user.email-->
+						<!-- add cover_photo and avatar -->
+					<div class="col-md-offset-8">
+						<div class="avatar">
+							<%= image_tag @profile.avatar.url(:medium) %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+					<!-- <p>
+							<%= image_tag @profile.cover_photo.url() %>
+					</p> -->
+			
+
+			<p>
+					<% if !@profile.embed.blank? %>
+						<%= render :inline => @profile.embed %>
+					<% end %>
+			</p>
+
+
+					<% if !@profile.facebook.blank? %>
+						<%= link_to '<i class="fa fa-facebook-square"></i>' .html_safe, @profile.facebook %>
+					<% end %>
+
+
+					<% if !@profile.twitter.blank? %>
+						<%= link_to '<i class="fa fa-twitter-square"></i>' .html_safe, @profile.twitter %>
+					<% end %>
+
+
+
+					<% if !@profile.soundcloud.blank? %>
+						<%= link_to '<i class="fa fa-soundcloud"></i>' .html_safe, @profile.soundcloud %>
+					<% end %>
+
+
+
+			<p>
+			<!-- make it so these can only be seen by the user themselves -->
+			<% if @profile.user == current_user %>
+			<!-- add edit and destroy methods -->
+				<%= link_to "Edit EPK", edit_profile_path %> 
+			<% end %>
+			</p>
+		</div>
+	</div>
