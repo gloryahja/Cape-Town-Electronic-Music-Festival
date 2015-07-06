@@ -1,13 +1,49 @@
 .profile.profile-show {
+
+	background-color: #E6E6E6;
+	border: none;
+	margin: 0;
+}
+	
+	.bio {
+			margin-bottom: 20px;
+			background-repeat: no-repeat;
+			background-position: center;	
+			background-size: cover;
+			height: 500px;
+		}
+
+			.row{
+				padding: 1em;
+
+			}		
 	
 
-	.bio {
-		// background-image:
-		height: 200px;	
+	.bio-box {
+		background-color: #F8F8F8;
+		padding: 20px;
+		border-radius: 20px;
+		background-color: rgba(255,255,255,0.89);
 	}
 
 	.avatar {
 		border-radius: 50%;
-		border-color: black;
+		overflow: hidden;
+		margin: auto;
+		img{
+			width: 100%;
+
+		}
 	}
+
+
+.social-media {
+	height: 100px;
+	// background-color: #FF8484;
+	text-align: center;
 }
+
+
+
+
+

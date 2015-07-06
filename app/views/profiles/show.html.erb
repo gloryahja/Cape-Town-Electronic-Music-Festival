@@ -1,67 +1,51 @@
 <!-- this will be the landing page for the EPK as a whole -->
-<div class="col-md-2">
-	<div class="empty">
-	</div>
-</div>
-<div class="profile profile-show">
-		<div class ="col-md-8 col-md-offset-2">
-				<p>
-					<strong>
-						<%= @profile.name %>'s EPK
-					</strong>
-				</p>
-			<div class ="bio">
-				<div class="row">
-					<div class="col-md-7">
-						<h2>
-							<%= @profile.bio %>
-						</h2>
-					</div>
-						<!--@profile.user.email-->
-						<!-- add cover_photo and avatar -->
-					<div class="col-md-offset-8">
-						<div class="avatar">
-							<%= image_tag @profile.avatar.url(:medium) %>
-						</div>
+<div class="page profile profile-show clearfix">
+	<div class ="col-md-8 col-md-offset-2">
+
+	<div class ="bio" style="background-image: url(<%= @profile.cover_photo.url() %>)">
+		<div class="row">
+			<div class="col-md-5 col-md-offset-4">
+				<div class="avatar">
+					<%= image_tag @profile.avatar.url(:medium) %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="bio-box">
+						<strong><%= @profile.bio %></strong>
 					</div>
 				</div>
 			</div>
-
-					<!-- <p>
-							<%= image_tag @profile.cover_photo.url() %>
-					</p> -->
-			
-
-			<p>
-					<% if !@profile.embed.blank? %>
-						<%= render :inline => @profile.embed %>
-					<% end %>
-			</p>
-
-
-					<% if !@profile.facebook.blank? %>
-						<%= link_to '<i class="fa fa-facebook-square"></i>' .html_safe, @profile.facebook %>
-					<% end %>
-
-
-					<% if !@profile.twitter.blank? %>
-						<%= link_to '<i class="fa fa-twitter-square"></i>' .html_safe, @profile.twitter %>
-					<% end %>
-
-
-
-					<% if !@profile.soundcloud.blank? %>
-						<%= link_to '<i class="fa fa-soundcloud"></i>' .html_safe, @profile.soundcloud %>
-					<% end %>
-
-
-
-			<p>
-			<!-- make it so these can only be seen by the user themselves -->
-			<% if @profile.user == current_user %>
-			<!-- add edit and destroy methods -->
-				<%= link_to "Edit EPK", edit_profile_path %> 
+	</div>
+	
+	<div class="soundcloud">
+		<p>
+			<% if !@profile.embed.blank? %>
+				<%= render :inline => @profile.embed %>
 			<% end %>
-			</p>
+		</p>
+	</div>
+
+	<div class="social-media">
+		<p>Check out the rest of <%= @profile.name %>'s social media here:</p>	
+		<div class="icons">
+		
+			<% if !@profile.facebook.blank? %>
+				<%= link_to '<i class="fa fa-facebook-square fa-3x"></i>' .html_safe, @profile.facebook %>
+			<% end %>
+				&nbsp;&nbsp;&nbsp;
+			<% if !@profile.twitter.blank? %>
+				<%= link_to '<i class="fa fa-twitter-square fa-3x"></i>' .html_safe, @profile.twitter %>
+			<% end %>
+				&nbsp;&nbsp;&nbsp;
+			<% if !@profile.soundcloud.blank? %>
+				<%= link_to '<i class="fa fa-soundcloud fa-3x"></i>' .html_safe, @profile.soundcloud %>
+			<% end %>
 		</div>
 	</div>
+
+
+		
+	</div>
+</div>

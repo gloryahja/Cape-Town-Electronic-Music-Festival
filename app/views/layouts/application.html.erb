@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Epk</title>
+  <title>EPK Cape Town</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,17 +13,26 @@
    <!-- <p class="notice"><%= notice %></p>
          <p class="alert"><%= alert %></p> -->
 
-
-            <% if user_signed_in? %>
-              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-            <% else %>
-            		<%= link_to "Sign Up", new_user_registration_path %>
-            		<%= link_to "Log In", new_user_session_path %> 
-              </li>
+    <header>
+      <% if @profile %>
+        <div class="login-btn">
+          <strong>              
+            <%= @profile.name %>'s EPK
+          </strong>
+        <% end %>
+          <% if @profile && user_signed_in? %>
+            <!-- make it so these can only be seen by the user themselves -->
+            <% if @profile.user == current_user %>
+              <!-- add edit and destroy methods -->
+              <%= link_to "/ Edit EPK", edit_profile_path %> 
             <% end %>
-
-            <%= yield %>
-      
-
- </body>
+           </div>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"logout-btn") %>
+        <% else %>
+        		<%= link_to "Sign Up", new_user_registration_path, :class=>"logout-btn" %>
+            <%= link_to "Log In", new_user_session_path, :class=>"login-btn" %> 
+        <% end %>
+      </header>
+    <%= yield %>
+  </body>
 </html>

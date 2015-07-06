@@ -1,3 +1,20 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One);
+
+body {
+  width: 100%;
+  height: auto !important;
+  height: 100%;
+ 	text-align: center;
+	vertical-align: center;
+ font-family: 'Droid Sans', sans-serif;
+ background: black;
+}
+
+.content {
+	padding: 80px;
+	font-family: 'Fjalla One', sans-serif;
+}
