@@ -1,5 +1,5 @@
 <!-- this will be the landing page for the EPK as a whole -->
-
+<div class="profile profile-show">
 <p>
 	<strong>
 		<%= @profile.name %>'s EPK
@@ -32,7 +32,6 @@
 <p>
 		<% if !@profile.embed.blank? %>
 			<%= render :inline => @profile.embed %>
-
 		<% end %>
 </p>
 
@@ -42,14 +41,13 @@
 		<% end %>
 
 
-
 		<% if !@profile.twitter.blank? %>
 			<%= link_to '<i class="fa fa-twitter-square"></i>' .html_safe, @profile.twitter %>
 		<% end %>
 
 
 
-		<% if !@profile.twitter.blank? %>
+		<% if !@profile.soundcloud.blank? %>
 			<%= link_to '<i class="fa fa-soundcloud"></i>' .html_safe, @profile.soundcloud %>
 		<% end %>
 
@@ -62,3 +60,4 @@
 	<%= link_to "Edit EPK", edit_profile_path %> 
 <% end %>
 </p>
+</div>

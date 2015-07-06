@@ -27,6 +27,10 @@ gem 'devise', '~> 3.5.1'
 #paperclip to add cover photo and avatar
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
+
+#add bootstrap to rails app
+gem "twitter-bootstrap-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
