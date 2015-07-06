@@ -17,4 +17,21 @@ body {
 .content {
 	padding: 80px;
 	font-family: 'Fjalla One', sans-serif;
+  left: 0;
+  line-height: 200px;
+  margin: auto;
+  margin-top: -150px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
+
+.content h1{
+	font-size: 70px !important;
+	color: white !important;
+}
+.content h2 {
+	font-size: 55px !important;
+	color: white !important;
+}
+

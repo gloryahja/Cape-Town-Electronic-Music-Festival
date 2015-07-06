@@ -15,9 +15,9 @@
 
     <header>
       <% if @profile %>
-        <div class="login-btn">
+        <div class="epk-btn">
           <strong>              
-            <%= @profile.name %>'s EPK
+            <%= @profile.name %>'s EPK <!-- set it to the right -->
           </strong>
         <% end %>
           <% if @profile && user_signed_in? %>
