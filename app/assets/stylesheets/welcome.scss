@@ -6,32 +6,41 @@
 
 body {
   width: 100%;
-  height: auto !important;
   height: 100%;
  	text-align: center;
 	vertical-align: center;
  font-family: 'Droid Sans', sans-serif;
- background: black;
+ background: #1a1919;
 }
 
 .content {
-	padding: 80px;
+	padding: 40px;
 	font-family: 'Fjalla One', sans-serif;
   left: 0;
   line-height: 200px;
   margin: auto;
-  margin-top: -150px;
+  margin-top: -200px;
   position: absolute;
   top: 50%;
   width: 100%;
 }
 
-.content h1{
-	font-size: 70px !important;
-	color: white !important;
+.content h1 {
+	font-size: 70px;
+	color: white;
 }
 .content h2 {
-	font-size: 55px !important;
-	color: white !important;
+	font-size: 55px;
+	color: white;
+}
+
+.login-signin {
+	padding-top: 80px;
+ 	text-align: center;
+	vertical-align: center;
+	background: #ea4233;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 

@@ -1,11 +1,9 @@
 class ProfilesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
-
-# after_sign_in
-
-# end
-
+ def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || profiles_path
+  end
 
 	def index 
 	end
