@@ -1,33 +1,43 @@
 <div class="login-signin">
+<div class ="col-md-6 col-md-offset-3">
   <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
+    
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <p>
+        <label for="exampleInputEmail1">Email Address</label>
+      <%= f.email_field :email, autofocus: true, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"ex. ctmusic@gmail.com" %>
+      </p>
     </div>
 
+
     <div class="field">
-      <%= f.label :password %>
+      <label for="exampleInputEmail1">Password</label>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", :class =>"form-control", :id =>"exampleInputEmail1"%>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+     <label for="exampleInputEmail1">Password Confirmation</label>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class =>"form-control", :id =>"exampleInputEmail1" %>
     </div>
-
+    <p>
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+     <i class="icon-ok icon-white"></i> Enjoy!
     </div>
+    </p>
   <% end %>
   <%= link_to "Home", root_path %>
 
-  <%= render "devise/shared/links" %>
+  <p>
 
+  <%= render "devise/shared/links" %>
+  </p>
+  <% end %>
+  </div>
 </div>

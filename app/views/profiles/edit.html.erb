@@ -1,4 +1,5 @@
 <div class="profile profile-new_edit">
+<div class ="col-md-6 col-md-offset-3">
 <h1>Edit Your Profile</h1>
 
 <%= form_for :profile, url: profile_path(@profile), method: :patch do |f| %>
@@ -18,55 +19,71 @@
   <% end %>
 
 
-<p>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-</p>
+	<div class="form-group">
+		<p>
+			  <label for="exampleInputEmail1">Artist's Name</label>
 
-<p>
-	<%= f.label :bio %>
-	<%= f.text_area :bio %>
-</p>
+			<%= f.text_field :name, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"ex. DJ Fresh" %>
+		</p>
 
-<!-- add image avatar
+		<p>
+			 <label for="exampleInputEmail1">Artist's Short Bio</label>
+			<%= f.text_area :bio, :class =>"form-control", :rows =>"7", :placeholder =>"Write a little about yourself! Where are you from? How long have you been performing? What genre of music do you make?" %>
+		</p>
 
-add image cover_photo -->
+		<!-- add image avatar
 
-<p>
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %>
-</p>
+		add image cover_photo -->
 
-<p>
-	<%= f.label :cover_photo %>
-	<%= f.file_field :cover_photo %>
-</p>
+			<p>
+				 <label for="exampleInputFile">Upload an Avatar</label>
+						<div class="col-md-offset-4">
+							<%= f.file_field :avatar, :id=>"exampleInputFile", :class =>"form-inline" %>
+						</div>
+				 <p class="help-block">Make it a cool picture of you doing your thang</p>
+			</p>
 
-<p>
-	<%= f.label :facebook %>
-	<%= f.text_field :facebook %>
-</p>
+			<p>
+				 <label for="exampleInputFile">Upload an Cover Photo</label>
+					<div class="col-md-offset-4">
+						<%= f.file_field :cover_photo %>
+					</div>
+				<p class="help-block">Some ideas are a cool design or even your album cover!</p>
+			</p>
 
-<p>
-	<%= f.label :twitter %>
-	<%= f.text_field :twitter %>
-</p>
 
-<p>
-	<%= f.label :soundcloud %>
-	<%= f.text_field :soundcloud %>
-</p>
 
-<p>
-	<%= f.label :embed %>
-	<%= f.text_field :embed %>
-</p>
+		<p>
+			<label for="exampleInputFile">Add Your Facebook Page</label>
+			<%= f.text_field :facebook, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"Simply copy and paste the link here" %>
+			<p class="help-block">Make sure to have the 'https://' at the beginning</p>
+		</p>
 
-<p>
-	<%= f.submit %>
-</p>
+		<p>
+			<label for="exampleInputFile">Add Your Twitter Account</label>
+			<%= f.text_field :twitter, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"Copy and paste your twitter account URL"%>
+		</p>
 
-<% end %>
+		<p>
+			<label for="exampleInputFile">Add Your Souncloud Profile</label>
+			<%= f.text_field :soundcloud, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"Copy and paste your soundcloud profile URL" %>
+		</p>
 
-<%= link_to 'EPK Home', welcome_index_path %>
+		<p>
+			<label for="exampleInputFile">Add Your Soundcloud Playlist to your EPK</label>
+			<%= f.text_field :embed, :class =>"form-control", :id =>"exampleInputEmail1", :placeholder =>"Embed your playlist with the HTML code" %>
+		</p>
+
+		<p>
+			<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+		 <i class="icon-ok icon-white"></i> Save
+		<% end %>
+			
+		</p>
+
+
+	<% end %>
+
+	<%= link_to 'EPK Home', root_path %>
+</div>
 </div>
