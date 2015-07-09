@@ -4,11 +4,9 @@
 
 	<div class ="bio" style="background-image: url(<%= @profile.cover_photo.url() %>)">
 		<div class="row">
-			<div class="col-md-5 col-md-offset-4">
 				<div class="avatar">
-					<%= image_tag @profile.avatar.url(:medium) %>
+					<div class="image" style="background-image: url(<%= @profile.avatar.url(:medium) %>)"></div>
 				</div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
@@ -27,49 +25,25 @@
 		</p>
 	</div>
 
-
-        <!-- Projects Row -->
-        <div class="row">
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-               
-            </div>
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-               
-            </div>
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-                	
-            </div>
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-               
-            </div>
-            <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
-               
-            </div>
-        </div>
-        <!-- /.row -->
-
-
-
-
-
-
-
-
+<!-- Projects Row -->
+<div class="row">
+	<% @pictures.each do |pic| %>
+		<div class="col-md-4 portfolio-item">
+		<%= image_tag pic.image.url, :class => 'img-responsive' %>
+		<% if @profile.user == current_user %>
+		<div class ="row">
+        <%= button_to "Edit picture", edit_picture_path(pic), :class => 'button', :method => :get %>
+        <%=
+          button_to "Delete picture", pic,
+            :data => { :confirm => "Are you sure?" },
+            :method => :delete
+          %>
+          <% end %>
+          </div>
+	    </div>
+	<% end %>
+</div>
+<!-- /.row -->
 
 	<div class="social-media">
 		<p>Check out the rest of <%= @profile.name %>'s social media here:</p>	
