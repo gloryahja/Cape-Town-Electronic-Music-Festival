@@ -16,7 +16,6 @@
 
  @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
 
-
 header{
 	top: 0;
   padding: 15px;
@@ -47,4 +46,8 @@ header{
  font-family: 'Droid Sans', sans-serif;
  height: 100%;
 
+}
+
+.col-md-offset-5{
+	color:white;
 }

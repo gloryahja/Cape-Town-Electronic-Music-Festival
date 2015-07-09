@@ -1,18 +1,17 @@
 <%= form_for [@profile, @picture], :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
-
 <%= image_tag @picture.image.url, :id => 'cropbox' %>
 
-<div class="control-group">
-    <%= f.label :picture, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :image %>
-    </div>
-  </div>
+<div class="col-md-offset-5">
+<%= f.file_field :image%>
+</div>
 
-<div class="form-actions">
+</br>
+
     <%= f.button nil, :class => 'btn btn-primary' %>
+
+    <p>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 current_user.profile, :class => 'btn btn-mini' %>
-  </div>
-
+    </p>
+ 
 <% end %>	
