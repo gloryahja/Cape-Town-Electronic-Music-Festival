@@ -33,13 +33,13 @@
 		<% if @profile.user == current_user %>
 		<div class ="row">
         <%= button_to "Edit picture", edit_picture_path(pic), :class => 'button', :method => :get %>
-        <br/>
+		<p>
         <%=
           button_to "Delete picture", pic,
             :data => { :confirm => "Are you sure?" },
             :method => :delete
           %>
-          
+     </p>
           </div>
           <% end %>
 	    </div>
